@@ -1,17 +1,28 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
+import Banner from '../assets/banner.jpg'
 import './Header.scss'
 
+export const Nav = () => (
+  <nav id='nav'>
+    <ul>
+      <li className='active'><a href='/'>Hjem</a></li>
+      <li><a href='http://www.sollie.info/strava'>Strava</a></li>
+      <li><a href='https://github.com/andresol' target='_blank'>GitHub</a></li>
+      <li><a href='dashboard.html'>Dashboard</a></li>
+    </ul>
+  </nav>
+)
+
 export const Header = () => (
-  <div>
-    <h1>React Redux Starter Kit</h1>
-    <IndexLink to='/' activeClassName='route--active'>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName='route--active'>
-      Counter
-    </Link>
+  <div style={{ backgroundImage: `url(${Banner})` }} id='header'>
+    <div className='container'>
+      <div id='logo'>
+        <h1>
+          <a href='#'>SOLLIE</a></h1>
+      </div>
+      <Nav />
+    </div>
   </div>
 )
 
