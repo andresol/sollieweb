@@ -9,7 +9,7 @@ export const Nav = () => (
       <li className='active'><a href='/'>Hjem</a></li>
       <li><a href='http://www.sollie.info/strava'>Strava</a></li>
       <li><a href='https://github.com/andresol' target='_blank'>GitHub</a></li>
-      <li><a href='dashboard.html'>Dashboard</a></li>
+      <li><Link to={`/power`}>Strømforbruk</Link></li>
     </ul>
   </nav>
 )

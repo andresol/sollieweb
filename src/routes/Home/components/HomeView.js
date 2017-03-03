@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import './HomeView.scss'
 import Weather from '../../../components/Weather'
 
-export const HomeView = () => (
+export const HomeView = (props) => (
   <div id='featured'>
     <div className='container'>
       <Row>
