@@ -8,24 +8,24 @@ export const HomeView = (props) => (
     <div className='container'>
       <Row>
         <Col xs={4} md={4}>
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather} />
         </Col>
         <Col xs={4} md={4} >
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather}/>
         </Col>
         <Col xs={4} md={4} >
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather}/>
         </Col>
       </Row>
       <Row>
         <Col xs={4} md={4} >
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather}/>
         </Col>
         <Col xs={4} md={4} >
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather} />
         </Col>
         <Col xs={4} md={4} >
-          <Weather />
+          <Weather updateWind={props.updateWind} weather={props.weather} />
         </Col>
       </Row>
     </div>

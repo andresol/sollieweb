@@ -13,11 +13,20 @@ import { IndexLink, Link } from 'react-router'
  */
 export class Weather extends React.Component {
 
+  constructor(props) {
+    super(props)
+    const {updateWind} = props.updateWind()
+    if (updateWind) {
+      updateWind();
+    }
+  }
+
+
   render () {
     return (
       <div>
-        <h2>hello</h2>
-        <div className='live wind'>0.0 ms</div>
+        <h2>{this.props.weather.home.name}</h2>
+        <div className='live wind'></div>
         <p>
           <a className='button'>Vind</a>
         </p>
@@ -27,8 +36,8 @@ export class Weather extends React.Component {
 }
 
 Weather.defaultProps = {
-  //title: 'test'
+  updateWind: {}
 }
 Weather.propTypes = {
-  //title: React.PropTypes.string
+  updateWind: React.PropTypes.func
 }

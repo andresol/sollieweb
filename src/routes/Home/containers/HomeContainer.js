@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
-import { updateWind } from '../modules/home'
+import { updateWind, updatetTempOutDoor } from '../modules/home'
 
 const mapDispatchToProps = {
-  updateWind : () => updateWind
+  updateWind : updateWind,
+  updateTemp: updatetTempOutDoor
 }
 
 const mapStateToProps = (state) => ({
-  weather : state.data
+  weather : state
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
