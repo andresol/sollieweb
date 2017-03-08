@@ -48,7 +48,7 @@ export class Wind extends Weather {
 // data[0].value
 
 Wind.defaultProps = {
-  title: '',
+  weather: {},
   value: '',
   updateWind: () => ''
 }
@@ -66,7 +66,7 @@ export class Temp extends Weather {
 }
 
 Temp.defaultProps = {
-  title: '',
+  weather: {},
   value: '',
   updateTemp: () => ''
 }
