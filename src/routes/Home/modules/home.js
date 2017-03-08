@@ -42,15 +42,13 @@ export const getTemp = (data = {}) => {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export const weatherReducer = (state = {}, action) => {
-  switch (action.type) {
-    case 'UPDATE_WIND':
-      return action.data
-    case 'UPDATE_TEMP':
-      return action.data
-    default:
-      return state
-  }
+const ACTION_HANDLERS = {
+  [UPDATE_WIND]: (state, action) => action.data,
+  [UPDATE_TEMP]: (state, action) => action.data
 }
 
-export default weatherReducer
+const initialState = {}
+export default function weatherReducer (state = initialState, action) {
+  const handler = ACTION_HANDLERS[action.type]
+  return handler ? handler(state, action) : state
+}
