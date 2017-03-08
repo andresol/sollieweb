@@ -11,7 +11,7 @@ export const HomeView = (props) => (
           <Wind updateWind={props.updateWind} weather={props.weather} />
         </Col>
         <Col xs={4} md={4} >
-          <Temp updateWind={props.updateTemp} weather={props.weather} />
+          <Temp updateTemp={props.updateTemp} weather={props.weather} />
         </Col>
         <Col xs={4} md={4} >
           <Wind updateWind={props.updateWind} weather={props.weather} />
