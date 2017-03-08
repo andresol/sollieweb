@@ -10,6 +10,7 @@ export default (store) => ({
       const HomeView = require('./containers/HomeContainer').default
       const reducer = require('./modules/home').default
 
+      /*  Add the reducer to the store on key 'home'  */
       injectReducer(store, { key: 'home', reducer })
 
       /*  Return getComponent   */

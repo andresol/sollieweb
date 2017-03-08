@@ -1,6 +1,6 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
-import Banner from '../assets/banner.jpg'
+import { Link } from 'react-router'
+import Banner from '../Assets/banner.jpg'
 import './Header.scss'
 
 export const Nav = () => (
