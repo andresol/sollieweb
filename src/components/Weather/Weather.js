@@ -2,11 +2,6 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export class Weather extends React.Component {
-
-  constructor (props) {
-    super(props)
-  }
-
   getTitle () {
     return this.title
   }
@@ -43,7 +38,7 @@ export class Wind extends Weather {
   constructor (props) {
     super(props)
     this.title = props.weather.name
-    this.value = props.weather.data ? props.weather.data[0].name : ''
+    this.value = props.weather.data ? props.weather.data[0].value : ''
     const { updateWind } = props.updateWind()
     if (updateWind) {
       updateWind()
@@ -62,7 +57,7 @@ export class Temp extends Weather {
   constructor (props) {
     super(props)
     this.title = props.weather.name
-    this.value = props.weather.data ? props.weather.data[0].name : ''
+    this.value = props.weather.data ? props.weather.data[0].value : ''
     const { updateWind } = props.updateTemp()
     if (updateWind) {
       updateWind()
