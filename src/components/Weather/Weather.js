@@ -1,33 +1,27 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
-/*
- export const Weather = ({ title }) => (
- <div>
- <h2>{title}</h2>
- <div className='live wind'>0.0 ms</div>
- <p>
- <a className='button'>Vind</a>
- </p>
- </div>
- )
- */
+import { Link } from 'react-router'
+
 export class Weather extends React.Component {
 
   constructor (props) {
     super(props)
-    const { updateWind } = props.updateWind()
-    if (updateWind) {
-      updateWind()
-    }
+  }
+
+  getTitle () {
+    return this.title
+  }
+
+  getValue () {
+    return this.name
   }
 
   render () {
     return (
       <div>
-        <h2>{this.props.weather.name}</h2>
-        <div className='live wind'>{ this.props.weather.data ? this.props.weather.data[0].value : ''}</div>
+        <h2>{this.getTitle()}</h2>
+        <div className='live wind'>{this.getValue()}</div>
         <p>
-          <a className='button'>Vind</a>
+          <Link />
         </p>
       </div>
     )
@@ -35,8 +29,50 @@ export class Weather extends React.Component {
 }
 
 Weather.defaultProps = {
+  title: ''
 }
 
 Weather.propTypes = {
-  updateWind: React.PropTypes.func
+  getWeather: React.PropTypes.func,
+  title: React.PropTypes.string,
+  value: React.PropTypes.string
 }
+
+export class Wind extends Weather {
+
+  constructor (props) {
+    super(props)
+    this.title = props.weather.name
+    this.value = props.weather.data ? props.weather.data[0].name : ''
+    const { updateWind } = props.updateWind()
+    if (updateWind) {
+      updateWind()
+    }
+  }
+}
+// data[0].value
+
+Wind.defaultProps = {
+  title: '',
+  value: '',
+  updateWind: () => ''
+}
+
+export class Temp extends Weather {
+  constructor (props) {
+    super(props)
+    this.title = props.weather.name
+    this.value = props.weather.data ? props.weather.data[0].name : ''
+    const { updateWind } = props.updateTemp()
+    if (updateWind) {
+      updateWind()
+    }
+  }
+}
+
+Temp.defaultProps = {
+  title: '',
+  value: '',
+  updateTemp: () => ''
+}
+
