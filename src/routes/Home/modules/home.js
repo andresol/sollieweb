@@ -19,7 +19,7 @@ export const updateWind = () => {
 
 export const updatetTempOutDoor = () => {
   return (dispatch, getState) => {
-    return fetch('http://www.sollie.info/telldus-api/sensor/4750078')
+    return fetch('http://www.sollie.info/telldus-api/sensor/10535866')
       .then(response => response.json())
       .then(json => dispatch(getTemp(json)))
   }
@@ -40,12 +40,17 @@ export const getTemp = (data = {}) => {
 }
 
 // ------------------------------------
+// Action Handlers
+// ------------------------------------
+
+const ACTION_HANDLERS = {
+  [UPDATE_WIND]: (state, action) => ({ ...state, wind: action.data }),
+  [UPDATE_TEMP]: (state, action) => ({ ...state, temp: action.data })
+}
+
+// ------------------------------------
 // Reducer
 // ------------------------------------
-const ACTION_HANDLERS = {
-  [UPDATE_WIND]: (state, action) => action.data,
-  [UPDATE_TEMP]: (state, action) => action.data
-}
 
 const initialState = {}
 export default function weatherReducer (state = initialState, action) {

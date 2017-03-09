@@ -8,24 +8,24 @@ const mapDispatchToProps = {
 }
 
 /*
-const getActionFilter = (state) => state.home
-const getData = (state) => state.home
+ const getActionFilter = (state) => state.home
+ const getData = (state) => state.home
 
-export const getWeatherData = createSelector(
-  [ getActionFilter, getData ],
-  (getActionFilter, getData) => {
-    switch (getActionFilter) {
-      case 'UPDATE_WIND':
-        return getData(state);
-      case 'UPDATE_TEMP':
-        return getData(state);
-    }
-  }
-)
-*/
+ export const getWeatherData = createSelector(
+ [ getActionFilter, getData ],
+ (getActionFilter, getData) => {
+ switch (getActionFilter) {
+ case 'UPDATE_WIND':
+ return getData(state);
+ case 'UPDATE_TEMP':
+ return getData(state);
+ }
+ }
+ )
+ */
 const mapStateToProps = (state) => {
   return {
-    weather: state.home
+    ...state
   }
 }
 

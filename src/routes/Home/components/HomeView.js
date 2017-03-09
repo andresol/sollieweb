@@ -8,24 +8,24 @@ export const HomeView = (props) => (
     <div className='container'>
       <Row>
         <Col xs={4} md={4}>
-          <Wind updateWind={props.updateWind} weather={props.weather} />
+          <Wind updateWind={props.updateWind} weather={props.home.wind} />
         </Col>
         <Col xs={4} md={4} >
-          <Temp updateTemp={props.updateTemp} weather={props.weather} />
+          <Temp updateTemp={props.updateTemp} weather={props.home.temp} />
         </Col>
         <Col xs={4} md={4} >
-          <Wind updateWind={props.updateWind} weather={props.weather} />
+          <Wind updateWind={props.updateWind} weather={props.home.wind} />
         </Col>
       </Row>
       <Row>
         <Col xs={4} md={4} >
-          <Wind updateWind={props.updateWind} weather={props.weather} />
+          <Wind updateWind={props.updateWind} weather={props.home.wind} />
         </Col>
         <Col xs={4} md={4} >
-          <Wind updateWind={props.updateWind} weather={props.weather} />
+          <Wind updateWind={props.updateWind} weather={props.home.wind} />
         </Col>
         <Col xs={4} md={4} >
-          <Wind updateWind={props.updateWind} weather={props.weather} />
+          <Wind updateWind={props.updateWind} weather={props.home.wind} />
         </Col>
       </Row>
     </div>
@@ -35,7 +35,8 @@ export const HomeView = (props) => (
 HomeView.propTypes = {
   updateWind: React.PropTypes.func,
   updateTemp: React.PropTypes.func,
-  weather: React.PropTypes.object
+  weather: React.PropTypes.object,
+  temp: React.PropTypes.object
 }
 
 export default HomeView

@@ -2,11 +2,19 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export class Weather extends React.Component {
+  getTitle () {
+    return this.title
+  }
+
+  getValue () {
+    return this.name
+  }
+
   render () {
     return (
       <div>
-        <h2></h2>
-        <div className='live wind'></div>
+        <h2>{this.getTitle()}</h2>
+        <div className='live wind'>{this.getValue()}</div>
         <p>
           <Link />
         </p>
@@ -25,35 +33,22 @@ Weather.propTypes = {
   value: React.PropTypes.string
 }
 
-export class Wind extends React.Component {
+export class Wind extends Weather {
 
   constructor (props) {
     super(props)
     this.title = props.weather.name
-    this.value = props.weather.data ? props.weather.data[0].value : ''
+    this.value = ''
     const { updateWind } = props.updateWind()
     if (updateWind) {
       updateWind()
     }
   }
-
-  render () {
-    return (
-      <div>
-        <h2>{this.title}</h2>
-        <div className='live wind'>{this.value}</div>
-        <p>
-          <Link />
-        </p>
-      </div>
-    )
-  }
 }
 // data[0].value
 
 Wind.defaultProps = {
-  weather: {},
-  value: '',
+  weather: { name: '', data: {} },
   updateWind: () => ''
 }
 
@@ -61,29 +56,16 @@ export class Temp extends Weather {
   constructor (props) {
     super(props)
     this.title = props.weather.name
-    this.value = props.weather.data ? props.weather.data[0].value : ''
+    this.value = ''
     const { updateWind } = props.updateTemp()
     if (updateWind) {
       updateWind()
     }
   }
-
-  render () {
-    return (
-      <div>
-        <h2>{this.title}</h2>
-        <div className='live wind'>{this.value}</div>
-        <p>
-          <Link />
-        </p>
-      </div>
-    )
-  }
 }
 
 Temp.defaultProps = {
-  weather: {},
-  value: '',
+  weather: { name: '', data: [] },
   updateTemp: () => ''
 }
 
